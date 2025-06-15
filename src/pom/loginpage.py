@@ -3,14 +3,13 @@ class LoginPage:
         self.page = page
         self.username_input = page.locator('input[name="user-name"]')
         self.password_input = page.locator('input[name="password"]')
-        self.submit_button = page.locator('button[type="submit"]')
+        self.submit_button = page.locator('input[name="login-button"]')
 
-    async def send_username(self, username):
-        await self.username_input.fill(username)
-        await self.submit_button.click()
+    def send_username(self, username):
+        self.username_input.fill(username)
 
-    async def send_password(self, password):
-        await self.password_input.fill(password)
+    def send_password(self, password):
+        self.password_input.fill(password)
 
-    async def login_click(self):
-        await self.submit_button.click()
+    def login_click(self):
+        self.submit_button.click()
